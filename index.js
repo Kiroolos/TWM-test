@@ -3,21 +3,30 @@ const City = require("./models/city");
 const Country = require("./models/country");
 const User = require("./models/user");
 
+const express = require("express");
+const app = express();
+
+const countries = require("./routes/countries");
+
+
+
 City.hasOne(User);
 Country.hasMany(City);
 
+//Creating Tables...
 sequelize
-    .sync({force: true})
-    .then((result)=>{
-        return Country.create({name:"Egypt"})
-        // console.log(result);
-    }).then((result)=>{
-        return City.create({name:"Hurghada",countryCode:1})
-        // console.log(result);
-    }).then((result)=>{
-        return User.create({name:"Kiroloss",cityID:1})
-         console.log(result);
+    .sync()
+    .then(()=>{
+        return Country.create()
+        })
+    .then(()=>{
+        return City.create()
+    })
+    .then(()=>{
+        return User.create()
     })
     .catch((err)=>{
         console.log(err.message);
     });
+    console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+// app.use("/api/countries", countries);
