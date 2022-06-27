@@ -1,9 +1,8 @@
-const express = require('express');
-const sequelize = require('sequelize');
-const sequelize = new Sequelize("dbtest","root","password",{
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize("kirolosdb","root","123456",{
   dialect: "mysql",
   host: "localhost",
+  port: 3306
 });
 
-const app = express();
 module.exports= sequelize;

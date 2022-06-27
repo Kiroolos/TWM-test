@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const sequelize= require("../util/database");
 
 const Country =sequelize.define("country",{
-    id:{
+    Code:{
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,

@@ -3,7 +3,7 @@ const sequelize= require("../util/database");
 const Country = require("./country");
 
 const City =sequelize.define("city",{
-    id:{
+    ID:{
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
@@ -12,6 +12,10 @@ const City =sequelize.define("city",{
     name:{
         type:Sequelize.STRING,
         allowNull:false
+    },
+    Population:{
+        type:Sequelize.INTEGER,
+        allowNull:true
     }
 
 });
